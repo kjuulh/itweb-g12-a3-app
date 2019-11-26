@@ -1,0 +1,56 @@
+@import 'styles';
+
+.base {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      text-align: center;
+      text-decoration: none;
+      padding: 0 12px;
+
+      :hover {
+        color: red;
+      }
+    }
+  }
+
+  .nav {
+    .logo {
+    }
+
+    .actions {
+      .actions-play {
+        float: left;
+      }
+
+      .actions-scores {
+        float: left;
+      }
+    }
+
+    .divider {
+    }
+
+    .user-actions {
+      .login {
+        float: right;
+      }
+
+      .register {
+        float: right;
+      }
+
+      .logout {
+        float: right;
+      }
+    }
+  }
+}
