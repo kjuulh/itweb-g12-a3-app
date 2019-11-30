@@ -1,5 +1,6 @@
 import React from 'react';
 import './HomePage.scss';
+import { Config } from '../../config/config';
 
 export const HomePage = () => {
   return (
@@ -7,6 +8,8 @@ export const HomePage = () => {
       <div className='container'>
         <h1 className='heading'>Home</h1>
         <div className='content'>
+          <p>{process.env.ENVIRONMENT}</p>
+          <p>{Config.serverUrl}</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
             enim tenetur similique aspernatur, impedit odit quisquam dolor
