@@ -1,4 +1,5 @@
 import Axios, { AxiosResponse } from 'axios';
+import { Config } from '../config/config';
 
 export interface RegisterUserData {
   username: string;
@@ -28,7 +29,7 @@ export interface ErrorResponse {
 }
 
 export class AuthService {
-  private static url = 'http://localhost:8080';
+  private static url = Config.serverUrl;
 
   public static registerUser = async (
     data: RegisterUserData,
