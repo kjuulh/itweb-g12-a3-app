@@ -1,0 +1,15 @@
+@import 'styles.scss';
+
+.home-page {
+  .container {
+    max-width: 640px;
+    margin: 100px auto 0;
+
+    .heading {
+    }
+
+    .content {
+      text-align: justify;
+    }
+  }
+}

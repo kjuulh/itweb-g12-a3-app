@@ -1,0 +1,60 @@
+@import 'styles';
+
+.menu-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: $background-alt-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms;
+
+  * {
+    z-index: 1;
+  }
+
+  .container {
+    align-self: center;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row wrap;
+
+    * {
+      flex-basis: 100%;
+      margin: 30px 0;
+    }
+    .divider {
+      width: 100%;
+      height: 2px;
+      background-color: darken($color: $background-alt-color, $amount: 20);
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      li > a {
+        font-size: 18px;
+        text-decoration: none;
+        color: $foreground-color;
+
+        &:hover {
+          color: lighten($color: $foreground-color, $amount: 20);
+        }
+
+        &:active {
+          color: lighten($color: $foreground-color, $amount: 0);
+        }
+
+        transition: all 200ms;
+      }
+    }
+  }
+}
