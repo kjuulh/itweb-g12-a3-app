@@ -1,5 +1,5 @@
 export class Config {
-  public static environment = process.env.ENVIRONMENT;
+  public static environment = process.env.REACT_APP_ENVIRONMENT;
   public static serverUrl =
     Config.environment == 'production'
       ? 'https://itweb-g12-a3-app.herokuapp.com'
