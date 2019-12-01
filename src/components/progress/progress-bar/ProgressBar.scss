@@ -9,6 +9,25 @@
   background-clip: padding-box;
   overflow: hidden;
 
+  will-change: width;
+
+  .determinate {
+    position: absolute;
+    background-color: $foreground-color;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s linear;
+  }
+
+  .timed {
+    position: absolute;
+    background-color: $foreground-color;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
   .indeterminate {
     background-color: rgba($progress, 0.6);
 

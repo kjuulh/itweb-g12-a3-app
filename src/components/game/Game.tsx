@@ -8,11 +8,13 @@ import {
 } from '../../library/reducers/gameSettings';
 import Grid from '../grid/Grid';
 import Score from '../score/Score';
+import ProgressBar from '../progress/progress-bar/ProgressBar';
 
 const Game: React.FC = () => {
   const dispatch = useDispatch();
 
   const [currentField, setCurrentField] = React.useState(-1);
+  const [currentTime, setCurrentTime] = React.useState(0);
 
   const { state, widthHeight } = useSelector(
     (state: { Settings: GameSettingsState }) => state.Settings,
@@ -40,7 +42,8 @@ const Game: React.FC = () => {
     const min = 1;
     const number = Math.floor(Math.random() * (max - min));
     setCurrentField(number);
-  }, 2000);
+    setCurrentTime(currentTime == 0 ? 100 : 0);
+  }, 5000);
 
   return (
     <div className='game-running'>
@@ -58,7 +61,13 @@ const Game: React.FC = () => {
         <button className='place'>Place</button>
         <button className='sound'>Sound</button>
       </div>
-      <div className='progress'></div>
+      <div className='progress'>
+        <ProgressBar
+          timed={true}
+          duration={5}
+          progress={currentTime}
+        ></ProgressBar>
+      </div>
       <div className='score'>
         <Score></Score>
       </div>
