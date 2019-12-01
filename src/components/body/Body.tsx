@@ -6,6 +6,7 @@ import { Menu } from '../menu/Menu';
 import './Body.scss';
 import RegisterPage from '../../pages/register.page/RegisterPage';
 import LoginPage from '../../pages/login.page/LoginPage';
+import GamePage from '../../pages/game.page/GamePage';
 
 const Body: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Body: React.FC = () => {
       <Menu></Menu>
       <Switch>
         <Route path='/play'>
-          <div>Games</div>
+          <GamePage></GamePage>
         </Route>
         <Route path='/scores'>
           <div>Scores</div>

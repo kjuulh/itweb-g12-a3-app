@@ -1,0 +1,12 @@
+@import 'styles';
+.game-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 840px;
+    min-width: 400px;
+  }
+}

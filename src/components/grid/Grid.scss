@@ -1,0 +1,76 @@
+@import 'styles';
+
+.grid {
+  width: 100%;
+  height: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+
+  &:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    gap: 1px solid $foreground-color;
+    row-gap: 16px;
+    column-gap: 16px;
+    position: relative;
+
+    [class*='col-'] {
+      height: 100%;
+      width: 100%;
+
+      border: 2px solid rgba($foreground-color, 0.2);
+      border-radius: 4px;
+      color: rgba($foreground-color, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 400;
+      font-size: 24px;
+
+      will-change: box-shadow;
+      transition: box-shadow 400ms;
+
+      &:hover {
+        box-shadow: 1px 1px 20px rgba($color: #000000, $alpha: 0.25);
+      }
+    }
+
+    .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $background-color;
+      height: 100%;
+      width: 100%;
+      background-color: $active;
+      border-radius: 4px;
+
+      will-change: background-color, border-radius, width, height;
+      animation: bubble 500ms;
+    }
+  }
+}
+
+@keyframes bubble {
+  0% {
+    background-color: rgba($active, 0);
+    border-radius: 200px;
+    width: 10%;
+    height: 10%;
+  }
+  60% {
+    background-color: rgba($active, 1);
+  }
+  100% {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+  }
+}

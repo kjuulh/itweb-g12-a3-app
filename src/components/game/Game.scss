@@ -1,0 +1,140 @@
+@import 'styles';
+
+.game-finished {
+  .game-banner {
+    width: 80%;
+    min-width: 300px;
+    margin: 40px auto 0;
+    height: 40px;
+    border-top: 1px solid $foreground-color;
+    border-bottom: 1px solid $foreground-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .game-title {
+      max-width: 200px;
+      font-size: 24px;
+      font-weight: 400;
+      color: $foreground-color;
+      margin: 0 10px;
+      text-transform: uppercase;
+    }
+
+    .game-play-button {
+      height: 30px;
+      width: 70px;
+      background-color: rgba($color: #000000, $alpha: 0);
+      color: $foreground-color;
+      border: 1px solid $foreground-color;
+      text-transform: uppercase;
+      outline: none;
+      margin: 0 10px;
+      font-size: 18px;
+      font-weight: 400;
+
+      will-change: background-color;
+      transition: background-color 150ms;
+
+      &:hover {
+        background-color: darken($background-color, 10);
+      }
+
+      &:active {
+        background-color: darken($background-color, 1);
+      }
+    }
+  }
+}
+
+.game-running {
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'counter counter'
+    'game score'
+    'buttons buttons'
+    'progress progress';
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-columns: 4fr 1fr;
+
+  .counter {
+    grid-area: counter;
+    margin: 0 auto;
+  }
+
+  &.grid {
+    grid-area: game;
+  }
+
+  .buttons {
+    grid-area: buttons;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'place sound';
+    column-gap: 5px;
+    button {
+      width: 100%;
+      height: 100%;
+      min-height: 40px;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 20px;
+      border: 1px solid rgba($color: $foreground-color, $alpha: 0.3);
+      background-color: rgba($color: #000000, $alpha: 0);
+      outline: none;
+
+      will-change: box-shadow;
+      transition: box-shadow 150ms;
+
+      &:hover {
+        //background-color: darken($background-color, 10);
+        box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.15);
+      }
+
+      &:active {
+        //background-color: darken($background-color, 5);
+        box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+
+    .place {
+      grid-area: place;
+    }
+
+    .sound {
+      grid-area: sound;
+    }
+  }
+
+  .progress {
+    grid-area: progress;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    min-height: 20px;
+    background-color: #444;
+  }
+
+  .score {
+    grid-area: score;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .game-running {
+    grid-template-areas:
+      'counter'
+      'game'
+      'buttons'
+      'score';
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+}

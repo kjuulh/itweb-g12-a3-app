@@ -4,6 +4,7 @@ import Register from './register';
 import Request from './request';
 import Login from './login';
 import Auth from './auth';
+import Settings from './gameSettings';
 
 const reducer = combineReducers({
   Menu,
@@ -11,6 +12,7 @@ const reducer = combineReducers({
   Request,
   Login,
   Auth,
+  Settings,
 });
 
 export default reducer;
