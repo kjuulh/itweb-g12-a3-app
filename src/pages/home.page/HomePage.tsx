@@ -8,7 +8,7 @@ export const HomePage = () => {
       <div className='container'>
         <h1 className='heading'>Home</h1>
         <div className='content'>
-          <p>{process.env.ENVIRONMENT}</p>
+          <p>{process.env.REACT_APP_ENVIRONMENT}</p>
           <p>{Config.serverUrl}</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
