@@ -48,24 +48,23 @@
 }
 
 .game-running {
-  margin-top: 50px;
+  margin: 50px auto 0;
   width: 100%;
   display: grid;
   grid-template-areas:
-    'counter counter'
-    'game score'
+    'counter score'
+    'game game'
     'buttons buttons'
     'progress progress';
   row-gap: 10px;
   column-gap: 10px;
-  grid-template-columns: 4fr 1fr;
 
   .counter {
     grid-area: counter;
     margin: 0 auto;
   }
 
-  &.grid {
+  .grid {
     grid-area: game;
   }
 
@@ -128,6 +127,7 @@
       'counter'
       'game'
       'buttons'
+      'progress'
       'score';
     grid-template-columns: 1fr;
     row-gap: 20px;

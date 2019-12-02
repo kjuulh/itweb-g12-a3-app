@@ -1,0 +1,53 @@
+@import 'styles';
+
+.field {
+  height: 100%;
+  width: 100%;
+
+  border: 1px solid rgba($foreground-color, 0.1);
+  border-radius: 4px;
+  color: rgba($foreground-color, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 24px;
+
+  will-change: box-shadow;
+  transition: box-shadow 400ms;
+
+  &:hover {
+    box-shadow: 1px 1px 20px rgba($color: #000000, $alpha: 0.25);
+  }
+}
+
+.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $background-color;
+  height: 100%;
+  width: 100%;
+  background-color: $foreground-color;
+  border-radius: 4px;
+
+  will-change: background-color, border-radius, width, height;
+  animation: bubble 500ms;
+}
+
+@keyframes bubble {
+  0% {
+    background-color: rgba($foreground-color, 0);
+    border-radius: 200px;
+    width: 10%;
+    height: 10%;
+  }
+  60% {
+    background-color: rgba($foreground-color, 1);
+  }
+  100% {
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+  }
+}

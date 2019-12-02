@@ -1,60 +1,41 @@
 import React, { useEffect } from 'react';
 import './Grid.scss';
+import Field from '../field/Field';
 
 export interface GridProps {
   rows: number;
   columns: number;
-  currentField: number;
 }
 
 const Grid: React.FC<GridProps> = (props) => {
-  const [fields, setFields] = React.useState();
+  let fields: number[] = [];
+  let count = 0;
+  for (let i = 0; i < props.rows * props.columns; i++) {
+    count++;
+    fields.push(count);
+  }
 
-  useEffect(() => {
-    createFields();
-  }, []);
-
-  const createFields = () => {
-    const f = [];
-
-    let count = 0;
-    for (let i = 0; i < props.columns; i++) {
-      for (let j = 0; j < props.rows; j++) {
-        count++;
-        f.push(
-          <div
-            className={`col-` + (i + 1) + 'row-' + (j + 1) + ' field-' + count}
-          >
-            {count}
-          </div>,
-        );
-      }
-      setFields(f);
-    }
-
-    return f;
+  const renderFields = () => {
+    return fields.map((field, index) => {
+      return <Field index={index} />;
+    });
   };
 
-  if (fields) {
-    return (
-      <div className='grid'>
-        {
-          <div
-            className='container'
-            style={{
-              gridTemplateRows: `repeat(${props.rows}, 1fr)`,
-              gridTemplateColumns: `repeat(${props.columns}, 1fr)`,
-            }}
-          >
-            {fields.map(field => (
-              field.
-            ))}
-          </div>
-        }
-      </div>
-    );
-  }
-  return null;
+  return (
+    <div className='grid'>
+      {
+        <div
+          className='container'
+          style={{
+            gridTemplateRows: `repeat(${props.rows}, 1fr)`,
+            gridTemplateColumns: `repeat(${props.columns}, 1fr)`,
+          }}
+        >
+          {renderFields()}
+        </div>
+      }
+    </div>
+  );
 };
 
 export default Grid;

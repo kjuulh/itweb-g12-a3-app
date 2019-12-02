@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Game.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   GameSettingsState,
   GameRunningState,
-  start,
+  beginGame,
 } from '../../library/reducers/gameSettings';
 import Grid from '../grid/Grid';
 import Score from '../score/Score';
 import ProgressBar from '../progress/progress-bar/ProgressBar';
+import { setActiveField } from '../../library/reducers/activeField';
+import { increment, CounterState } from '../../library/reducers/counter';
+import { add } from '../../library/reducers/round';
+import { NBackState } from '../../library/reducers/nback';
 
 const Game: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [currentField, setCurrentField] = React.useState(-1);
-  const [currentTime, setCurrentTime] = React.useState(0);
-
-  const { state, widthHeight } = useSelector(
+  const { state, widthHeight, timerDuration } = useSelector(
     (state: { Settings: GameSettingsState }) => state.Settings,
   );
+
+  const count = useSelector(
+    (state: { Counter: CounterState }) => state.Counter.count,
+  );
+
+  const { n } = useSelector((state: { NBack: NBackState }) => state.NBack);
+
+  const barProgress = count % 2 == 0 ? 0 : 100;
 
   if (state == GameRunningState.Finished) {
     return (
@@ -27,7 +36,7 @@ const Game: React.FC = () => {
           <span className='game-title'>Play the game</span>
           <button
             className='game-play-button'
-            onClick={() => dispatch(start({ widthHeight: 3 }))}
+            onClick={() => dispatch(beginGame(2, 5))}
           >
             Play
           </button>
@@ -36,26 +45,13 @@ const Game: React.FC = () => {
     );
   }
 
-  const n = 1;
-  setTimeout(() => {
-    const max = widthHeight * widthHeight;
-    const min = 1;
-    const number = Math.floor(Math.random() * (max - min));
-    setCurrentField(number);
-    setCurrentTime(currentTime == 0 ? 100 : 0);
-  }, 5000);
-
   return (
     <div className='game-running'>
       <div className='counter'>
         Counter <span className='counter-letter'>N</span>={n}
       </div>
       <div className='grid'>
-        <Grid
-          rows={widthHeight}
-          columns={widthHeight}
-          currentField={currentField}
-        ></Grid>
+        <Grid rows={widthHeight} columns={widthHeight}></Grid>
       </div>
       <div className='buttons'>
         <button className='place'>Place</button>
@@ -64,8 +60,8 @@ const Game: React.FC = () => {
       <div className='progress'>
         <ProgressBar
           timed={true}
-          duration={5}
-          progress={currentTime}
+          duration={timerDuration - 0.2}
+          progress={barProgress}
         ></ProgressBar>
       </div>
       <div className='score'>
