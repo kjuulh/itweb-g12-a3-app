@@ -13,6 +13,9 @@ import { setActiveField } from '../../library/reducers/activeField';
 import { increment, CounterState } from '../../library/reducers/counter';
 import { add } from '../../library/reducers/round';
 import { NBackState } from '../../library/reducers/nback';
+import * as FieldAttempt from '../../library/reducers/field-attempt';
+import * as SoundAttempt from '../../library/reducers/sound-attempt';
+import { ActiveSoundState } from '../../library/reducers/activeSound';
 
 const Game: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,10 @@ const Game: React.FC = () => {
 
   const count = useSelector(
     (state: { Counter: CounterState }) => state.Counter.count,
+  );
+
+  const { sound } = useSelector(
+    (state: { ActiveSound: ActiveSoundState }) => state.ActiveSound,
   );
 
   const { n } = useSelector((state: { NBack: NBackState }) => state.NBack);
@@ -36,7 +43,7 @@ const Game: React.FC = () => {
           <span className='game-title'>Play the game</span>
           <button
             className='game-play-button'
-            onClick={() => dispatch(beginGame(2, 5))}
+            onClick={() => dispatch(beginGame(3, 5))}
           >
             Play
           </button>
@@ -54,8 +61,18 @@ const Game: React.FC = () => {
         <Grid rows={widthHeight} columns={widthHeight}></Grid>
       </div>
       <div className='buttons'>
-        <button className='place'>Place</button>
-        <button className='sound'>Sound</button>
+        <button
+          className='place'
+          onClick={() => dispatch(FieldAttempt.attempt())}
+        >
+          Place
+        </button>
+        <button
+          className='sound'
+          onClick={() => dispatch(SoundAttempt.attempt())}
+        >
+          Sound
+        </button>
       </div>
       <div className='progress'>
         <ProgressBar

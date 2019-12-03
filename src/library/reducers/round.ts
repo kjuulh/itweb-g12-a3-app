@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from './counter';
 import { setActiveField } from './activeField';
 import { NBackState, set } from './nback';
+import { setActiveSound } from './activeSound';
 
 export interface Round {
   round: number;
@@ -51,6 +52,8 @@ export const addRound = (size: number) => {
       }),
     );
     dispatch(setActiveField(field));
+    dispatch(setActiveSound(sound));
+
     const cn = Math.floor(count / 10) + 1;
     if (cn !== n) {
       dispatch(set());
