@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Game.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,13 +9,10 @@ import {
 import Grid from '../grid/Grid';
 import Score from '../score/Score';
 import ProgressBar from '../progress/progress-bar/ProgressBar';
-import { setActiveField } from '../../library/reducers/activeField';
-import { increment, CounterState } from '../../library/reducers/counter';
-import { add } from '../../library/reducers/round';
+import { CounterState } from '../../library/reducers/counter';
 import { NBackState } from '../../library/reducers/nback';
 import * as FieldAttempt from '../../library/reducers/field-attempt';
 import * as SoundAttempt from '../../library/reducers/sound-attempt';
-import { ActiveSoundState } from '../../library/reducers/activeSound';
 
 const Game: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,10 +23,6 @@ const Game: React.FC = () => {
 
   const count = useSelector(
     (state: { Counter: CounterState }) => state.Counter.count,
-  );
-
-  const { sound } = useSelector(
-    (state: { ActiveSound: ActiveSoundState }) => state.ActiveSound,
   );
 
   const { n } = useSelector((state: { NBack: NBackState }) => state.NBack);
@@ -43,7 +36,7 @@ const Game: React.FC = () => {
           <span className='game-title'>Play the game</span>
           <button
             className='game-play-button'
-            onClick={() => dispatch(beginGame(3, 5))}
+            onClick={() => dispatch(beginGame(2, 3))}
           >
             Play
           </button>

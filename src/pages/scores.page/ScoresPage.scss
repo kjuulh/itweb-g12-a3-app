@@ -1,0 +1,43 @@
+@import 'styles';
+
+.scores-page {
+  width: 100%;
+  margin-top: 40px;
+
+  > .score {
+    max-width: 280px;
+    display: grid;
+
+    grid-template-areas:
+      'ranking username'
+      'ranking score';
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+
+    .ranking {
+      grid-area: ranking;
+      align-self: center;
+      font-size: 28px;
+    }
+
+    .amount {
+      grid-area: score;
+    }
+
+    .username {
+      grid-area: username;
+      text-transform: uppercase;
+      font-weight: 300;
+      color: darken($foreground-alt-color, 70);
+    }
+  }
+
+  .divider {
+    width: 100%;
+    max-width: 260px;
+    margin: 20px auto;
+    height: 1px;
+    background-color: rgba($foreground-alt-color, 0.2);
+  }
+}

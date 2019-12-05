@@ -12,6 +12,7 @@ import FieldAttempt from './field-attempt';
 import ActiveSound from './activeSound';
 import SoundAttempt from './sound-attempt';
 import Score from './score';
+import Scores from './scores';
 import { combineReducers } from '@reduxjs/toolkit';
 
 const reducer = combineReducers({
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   FieldAttempt,
   SoundAttempt,
   Score,
+  Scores,
 });
 export type RootState = ReturnType<typeof reducer>;
 export default reducer;
