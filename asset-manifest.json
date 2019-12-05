@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/DualNBack/static/css/main.514a5c74.chunk.css",
+    "main.js": "/DualNBack/static/js/main.7e967992.chunk.js",
+    "main.js.map": "/DualNBack/static/js/main.7e967992.chunk.js.map",
+    "runtime-main.js": "/DualNBack/static/js/runtime-main.6bdb25b8.js",
+    "runtime-main.js.map": "/DualNBack/static/js/runtime-main.6bdb25b8.js.map",
+    "static/js/2.f465ef28.chunk.js": "/DualNBack/static/js/2.f465ef28.chunk.js",
+    "static/js/2.f465ef28.chunk.js.map": "/DualNBack/static/js/2.f465ef28.chunk.js.map",
+    "index.html": "/DualNBack/index.html",
+    "precache-manifest.5d2277f754a86d56015c99ad9e179f31.js": "/DualNBack/precache-manifest.5d2277f754a86d56015c99ad9e179f31.js",
+    "service-worker.js": "/DualNBack/service-worker.js",
+    "static/css/main.514a5c74.chunk.css.map": "/DualNBack/static/css/main.514a5c74.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6bdb25b8.js",
+    "static/js/2.f465ef28.chunk.js",
+    "static/css/main.514a5c74.chunk.css",
+    "static/js/main.7e967992.chunk.js"
+  ]
+}
