@@ -13,10 +13,11 @@ const nBackSlice = createSlice({
   initialState,
   reducers: {
     set: (state: NBackState) => ({ n: state.n + 1 }),
+    reset: (state: NBackState) => ({ ...initialState }),
   },
 });
 
 const { actions, reducer } = nBackSlice;
 
-export const { set } = actions;
+export const { set, reset } = actions;
 export default reducer;

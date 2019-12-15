@@ -18,10 +18,12 @@ const activeSoundSlice = createSlice({
     ) => ({
       sound: action.payload,
     }),
+    reset: (state: ActiveSoundState) => ({ ...initialState }),
   },
 });
 
 const { actions, reducer } = activeSoundSlice;
+export const { reset } = actions;
 
 export default reducer;
 

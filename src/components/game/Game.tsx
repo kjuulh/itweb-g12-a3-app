@@ -36,7 +36,7 @@ const Game: React.FC = () => {
           <span className='game-title'>Play the game</span>
           <button
             className='game-play-button'
-            onClick={() => dispatch(beginGame(2, 3))}
+            onClick={() => dispatch(beginGame(3, 3))}
           >
             Play
           </button>

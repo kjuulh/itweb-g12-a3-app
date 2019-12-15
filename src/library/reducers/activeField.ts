@@ -18,10 +18,11 @@ const activeFieldSlice = createSlice({
     ) => ({
       field: action.payload,
     }),
+    reset: (state: ActiveFieldState) => ({ ...initialState }),
   },
 });
 
 const { actions, reducer } = activeFieldSlice;
 
-export const { setActiveField } = actions;
+export const { setActiveField, reset } = actions;
 export default reducer;

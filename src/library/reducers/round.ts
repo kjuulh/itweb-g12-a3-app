@@ -27,11 +27,12 @@ const roundSlice = createSlice({
         rounds: [...state.rounds, action.payload],
       };
     },
+    reset: (state: RoundState) => ({ ...initialState }),
   },
 });
 
 const { actions, reducer } = roundSlice;
-export const { add } = actions;
+export const { add, reset } = actions;
 export default reducer;
 
 export const addRound = (size: number) => {
